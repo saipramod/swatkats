@@ -1,0 +1,63 @@
+(function(ts,$,undefined){
+
+
+	var processForm = function(e){
+		if (e.preventDefault()) 
+			e.preventDefault();
+		console.log("submitted");
+
+		if ($("#answer").val() == ""){
+			$("#authentication").text("empty fields no allowed");
+		}
+		else{
+			$.ajax({
+            	url: "checkAccess",
+            	type : "post",
+            	data : {answer:$("#answer").val()}
+        	})
+        	.success (function(response) {
+        		if (response){
+        			if (response == "true"){
+        				$("#authentication").text("Successfully Autheticated");
+        				$("#swatkats").fadeOut();
+        				$("#accordion").fadeIn();	
+        				$("#newblog").fadeIn();	
+        				$("#newblogtextarea").hide();	
+        				
+        			}
+        			else{
+        				$("#authentication").text("Not Authorized");	
+        			}
+
+					
+        		}
+        		else{
+        			$("#authentication").text("Not Authorized");			
+        		}
+        	})
+        	.error   (function(message)  { 
+        		console.log("error: " + message); 
+        	});	
+		}
+
+		
+
+	}
+
+	$( document ).ready(function() {
+		$("#newblog").hide();
+		$("#accordion").hide();
+		var form = document.getElementById('gaincaccess');
+		if (form.attachEvent) {
+    		form.attachEvent("submit", processForm);
+		} else {
+    		form.addEventListener("submit", processForm);
+		}
+		$("#addnewblog").click(function(){
+			$("#newblogtextarea").fadeIn();
+		})
+	});
+
+	
+})(window.ts = window.ts || {} , jQuery)
+

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SwatKats blog site</title>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="/javascripts/bellhops.js"></script>
+
+
+
+
+</head>
+<body>
+
+
+
+<div class="well container">
+  <h2>Welcome to the SwatKats Fan's club </h2>
+</div>
+
+<div class="container" id="swatkats">
+<br>
+  <p> Welcome, please answer the below question to prove you are a swatkats fan !!</p>
+  <p> One of the swatkats was T-Bone, name the other</p>
+  <div id="authentication" style="font:14px;color:green"></div>
+  <form id="gaincaccess">
+  <input type="text" id="answer" placeholder="Enter the name" />
+  <input type="submit" value="submit" />
+  </form>
+<br>
+</div>
+
+<div class="container" id="newblog">
+  <h4> Use the below button to add a new section </h4>
+  <button type="button" class="btn btn-primary" id="addnewblog" >Add</button>
+  </form>
+<div id="newblogtextarea">
+  <form id="newblogform">
+    <div class="form-group">
+    <label for="newblog">Add You New Content:</label>
+    <textarea class="form-control" rows="5" id="comment" name="content"></textarea>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form> 
+  </div>
+</div>
+
+
+<div id="accordion" class="container">
+  
+  <h3>Section 1</h3>
+  <div>
+    <p style="height:auto">
+    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+  </p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p>
+    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+    suscipit faucibus urna.
+    </p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+    mauris vel est.
+    </p>
+    <p>
+    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+    inceptos himenaeos.
+    </p>
+  </div>
+</div>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js"></script>
+  <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
+</body>
+</html>
