@@ -4,18 +4,10 @@
   <meta charset="utf-8">
   <title>SwatKats blog site</title>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  
-
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-  
-  <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-
-  <script>
-  $(function() {
-    $( "#accordion" ).accordion();
-  });
-  </script>
   <script src="/javascripts/bellhops.js"></script>
+
+
+
 
 </head>
 <body>
@@ -40,14 +32,14 @@
 
 <div class="container" id="newblog">
   <h4> Use the below button to add a new section </h4>
-  <input type="button" class="btn btn-primary" id="addnewblog" value="add"></button>
+  <button type="button" class="btn btn-primary" id="addnewblog" >Add</button>
   </form>
 <div id="newblogtextarea">
   <form id="newblogform">
     <div class="form-group">
     <label for="newblog">Add You New Content:</label>
     <textarea class="form-control" rows="5" id="comment" name="content"></textarea>
-    <button type="submit" class="btn btn-primary">Submit</button> &nbsp &nbsp 
+    <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </form> 
   </div>
@@ -103,8 +95,15 @@
     </p>
   </div>
 </div>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js"></script>
-  
+  <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
 </body>
 </html>

@@ -22,7 +22,7 @@ router.post("/checkAccess",function(req,res){
 });
 
 router.post("/addNewContent",function(req,res){
-	var content = new mongo(content:req.body.content);
+	var content = new mongo({content:req.body.content});
 	content.save(function(err,data){
 		if (err)
 			res.send('false');

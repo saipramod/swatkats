@@ -5,7 +5,7 @@
 			e.preventDefault();
 		console.log("submitted");
 
-		if ($("#answer").val() == ""){
+		if ($.trim( $('#answer').val() )  == ""){
 			$("#authentication").text("empty fields no allowed");
 		}
 		else{
@@ -37,30 +37,6 @@
 		}
 	}
 
-	$( document ).ready(function() {
-		$("#newblog").hide();
-		$("#accordion").hide();
-		var form1 = document.getElementById('gaincaccess');
-		if (form1.attachEvent) {
-    		form1.attachEvent("submit", processEntryForm);
-		}else {
-    		form1.addEventListener("submit", processEntryForm);
-		}
-
-		var form2 = focument.getelementById('addNewContent');
-		if(form2.attachEvent){
-			form2.attachEvent("submit",addNewContent);
-		}else{
-			form2.attachEvent("submit",addNewContent);
-		};
-
-		getAllContent();
-	});
-
-	$("#addnewblog").click(function(){
-		$("#newblogtextarea").fadeIn();
-	});
-
 	var addNewContent = function(e){
 		e.preventDefault();
 		if ($("#comment").val() == ""){
@@ -73,15 +49,52 @@
             	url: "addNewContent",
             	type : "post",
             	data : data
-        	})
+        })
 		.success (function(response){
+			getAllContent();
 
-		});
+		})
 		.error (function(message){
-
+			
 		});
 
 	};
+
+	$( document ).ready(function() {
+		$("#newblog").hide();
+		$("#accordion").hide();
+		var form1 = document.getElementById('gaincaccess');
+		if (form1.attachEvent) {
+    		form1.attachEvent("submit", processEntryForm);
+		}else {
+    		form1.addEventListener("submit", processEntryForm);
+		}
+
+		var form2 = document.getElementById('newblogform');
+		if(form2.attachEvent){
+			form2.attachEvent("submit",addNewContent);
+		}else{
+			form2.addEventListener("submit",addNewContent);
+		};
+
+
+		$('#addnewblog').click(function() {
+    		if ($(this).attr('value') == 'add') {
+        		$(this).attr('value', 'hide');
+        		$('#newblogform').slideDown();
+    	} else {
+        	$(this).attr('value', 'add');
+        	$('#newblogform').slideUp();
+    	}
+
+    // or if you don't care about changing the button text, simply:
+    		//$('#newblogform').slideToggle();
+		});
+		getAllContent();
+	});
+
+
+	
 
 	var getAllContent = function(){
 		$.ajax({
@@ -89,13 +102,28 @@
             	type : "post"
         	})
 		.success (function(response){
-
-
-		});
+			showToScreen(response);
+		})
 		.error (function(message){
-
+			console.log("error retrieving data" , message);
 		});
+		$("#addnewblog").click(function(){
+			$("#newblogtextarea").fadeIn();
+		});
+
+		$("#closeblog").click(function(){
+			$("#newblogtextarea").text('');
+			$("#newblogtextarea").fadeOut();
+		});
+
 	};
+
+	var showToScreen = function (data){
+		for (var i=0;i<data.length;i++){
+			$("#accordion").append("<h3>Section ",i+1," </h3>");
+			$("#accordion").append("<div><p>",data[i],"</p></div>");
+		}
+	}
 	
 })(window.ts = window.ts || {} , jQuery)
 
