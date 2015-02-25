@@ -22,6 +22,7 @@
         				$("#accordion").fadeIn();	
         				$("#newblog").fadeIn();	
         				$("#newblogtextarea").hide();	
+        				getAllContent();
         			}
         			else{
         				$("#authentication").text("Not Authorized");	
@@ -40,7 +41,7 @@
 	var addNewContent = function(e){
 		e.preventDefault();
 		if ($("#comment").val() == ""){
-			$("#newblogtextarea").append("<i>Cannot be empty</i>");
+			$("#blogareamessage").text("cannot be empty");
 			return;
 		}
 
@@ -51,11 +52,18 @@
             	data : data
         })
 		.success (function(response){
+			
+			$("#blogareamessage").text("successfully added");
+			$('#newblogform').slideUp();		
+			$("#blogareamessage").fadeOut(3000);
+			
+			
 			getAllContent();
+
 
 		})
 		.error (function(message){
-			
+			console.log(message);
 		});
 
 	};
@@ -79,6 +87,7 @@
 
 
 		$('#addnewblog').click(function() {
+			$("#newblogtextarea").fadeIn();
     		if ($(this).attr('value') == 'add') {
         		$(this).attr('value', 'hide');
         		$('#newblogform').slideDown();
@@ -86,11 +95,7 @@
         	$(this).attr('value', 'add');
         	$('#newblogform').slideUp();
     	}
-
-    // or if you don't care about changing the button text, simply:
-    		//$('#newblogform').slideToggle();
 		});
-		getAllContent();
 	});
 
 
@@ -102,27 +107,20 @@
             	type : "post"
         	})
 		.success (function(response){
+			console.log(response);
 			showToScreen(response);
 		})
 		.error (function(message){
 			console.log("error retrieving data" , message);
 		});
-		$("#addnewblog").click(function(){
-			$("#newblogtextarea").fadeIn();
-		});
-
-		$("#closeblog").click(function(){
-			$("#newblogtextarea").text('');
-			$("#newblogtextarea").fadeOut();
-		});
-
 	};
 
 	var showToScreen = function (data){
 		for (var i=0;i<data.length;i++){
-			$("#accordion").append("<h3>Section ",i+1," </h3>");
-			$("#accordion").append("<div><p>",data[i],"</p></div>");
+			$("#accordion").append("<h3>Section "+(i+1)+"</h3>");
+			$("#accordion").append("<div><p>"+data[i]['content']+"</p></div>");
 		}
+		$( "#accordion" ).accordion("refresh");
 	}
 	
 })(window.ts = window.ts || {} , jQuery)
