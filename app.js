@@ -4,7 +4,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var compressor = require('node-minify');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -25,6 +25,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+
+new compressor.minify({
+    type: 'gcc',
+    fileIn: 'public/javascripts/bellhops.js',
+    fileOut: 'public/javascripts/bellhops-min.js',
+    callback: function(err, min){
+        console.log(err);
+    }
+});
+
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

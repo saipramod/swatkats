@@ -120,6 +120,7 @@
 			$("#accordion").append("<h3>Section "+(i+1)+"</h3>");
 			$("#accordion").append("<div><p>"+data[i]['content']+"</p></div>");
 		}
+		$( "#accordion" ).accordion();
 		$( "#accordion" ).accordion("refresh");
 	}
 	
