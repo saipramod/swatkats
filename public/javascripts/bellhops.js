@@ -116,6 +116,7 @@
 	};
 
 	var showToScreen = function (data){
+		$("#accordion").empty();
 		for (var i=0;i<data.length;i++){
 			$("#accordion").append("<h3>Section "+(i+1)+"</h3>");
 			$("#accordion").append("<div><p>"+data[i]['content']+"</p></div>");

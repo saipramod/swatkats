@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SwatKats blog site</title>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+  
+  <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+  <script src="/javascripts/bellhops-min.js"></script>
+<script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
+</head>
+<body>
+
+<div class="well container">
+  <h2>Welcome to the SwatKats Fan's club </h2>
+</div>
+
+<div class="container" id="swatkats">
+<br>
+  <p> Welcome, please answer the below question to prove you are a swatkats fan !!</p>
+  <p> One of the swatkats was T-Bone, name the other</p>
+  <div id="authentication" style="font:14px;color:green"></div>
+  <form id="gaincaccess">
+  <input type="text" id="answer" placeholder="Enter the name" />
+  <input type="submit" value="submit" />
+  </form>
+<br>
+</div>
+
+<div class="container" id="newblog">
+  <h4> Use the below button to add a new section </h4>
+  <input type="button" class="btn btn-primary" id="addnewblog" value="add"></button>
+  </form>
+<div id="newblogtextarea">
+  <div style="color:green"id="blogareamessage"></div>
+  <form id="newblogform">
+    <div class="form-group">
+    <label for="newblog">Add You New Content:</label>
+    <textarea class="form-control" rows="5" id="comment" name="content"></textarea>
+    <button type="submit" class="btn btn-primary">Submit</button> &nbsp &nbsp 
+    </div>
+  </form> 
+  </div>
+</div>
+
+
+<div id="accordion" class="container">
+  </div>
+</div>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js"></script>
+  
+</body>
+</html>
