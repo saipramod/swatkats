@@ -97,10 +97,6 @@
     	}
 		});
 	});
-
-
-	
-
 	var getAllContent = function(){
 		$.ajax({
             	url: "getAllContent",

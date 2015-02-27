@@ -25,6 +25,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+var http = require('http');
+
+http.createServer(app).listen(80,function () {
+        console.log("we are listening on the port");
+});
+
 
 
 new compressor.minify({
